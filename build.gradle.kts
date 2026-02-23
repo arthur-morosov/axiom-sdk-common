@@ -20,11 +20,11 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 // Если вы публикуете AAR напрямую
-                artifact("library/contract-release.aar")
+                artifact("library/common-release.aar")
 
                 groupId = "com.github.arthur-morosov"
-                artifactId = "axiom-sdk-api"
-                version = "0.0.19"
+                artifactId = "axiom-sdk-common"
+                version = "0.0.2"
             }
         }
     }
