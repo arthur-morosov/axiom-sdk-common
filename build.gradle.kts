@@ -29,7 +29,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.arthur-morosov"  // Ваш GitHub username или организация
             artifactId = "axiom-sdk-common"        // Имя артефакта
-            version = "0.0.3"                      // Версия релиза
+            version = "0.0.4"                      // Версия релиза
 
             artifact("library/common-release.aar")
 //            from(components["common-release.aar"])            // Берет скомпилированный AAR
