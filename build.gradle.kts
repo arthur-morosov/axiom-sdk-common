@@ -23,18 +23,20 @@ android {
     }
 }
 
+afterEvaluate {
 //// Публикация артефакта
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-            groupId = "com.github.arthur-morosov"  // Ваш GitHub username или организация
-            artifactId = "axiom-sdk-common"        // Имя артефакта
-            version = "0.0.4"                      // Версия релиза
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                artifact("library/common-release.aar")
 
-            artifact("library/common-release.aar")
+                groupId = "com.github.arthur-morosov"  // Ваш GitHub username или организация
+                artifactId = "axiom-sdk-common"        // Имя артефакта
+                version = "0.0.5"                      // Версия релиза
+
 //            from(components["common-release.aar"])            // Берет скомпилированный AAR
 
-            // Метаданные (для Maven Central, для GitHub опционально)
+                // Метаданные (для Maven Central, для GitHub опционально)
 //            pom {
 //                name.set("Axiom SDK Common")
 //                description.set("Common utilities for Axiom SDK")
@@ -46,17 +48,18 @@ publishing {
 //                    }
 //                }
 //            }
+            }
         }
-    }
 
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/arthur-morosov/axiom-sdk-common")
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/arthur-morosov/axiom-sdk-common")
 //            credentials {
 //                username = System.getenv("GITHUB_ACTOR")
 //                password = System.getenv("GITHUB_TOKEN")
 //            }
+            }
         }
     }
 }
